@@ -1,17 +1,27 @@
-## My Project
+# Sample Game Unit Test Application
+[![license](https://img.shields.io/badge/license-MIT-green)](https://github.com/scttzth/node-js-game-app-unit-tests/blob/main/LICENSE)
 
-TODO: Fill this README out!
+This sample application is an example Node JS application to demonstrate CICD build capabilities inside AWS CodeBuild
 
-Be sure to:
+## Installing the Dependencies
 
-* Change the title in this README
-* Edit your repository description on GitHub
+Install Node.js and use the following command to install the dependencies:
 
-## Security
+```
+npm install
+```
 
-See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
+## Running the Sample Unit Tests
+
+```
+npm test
+```
+
+## Release Notes
+### Release 1.0.0
+
+* Create sample unit tests
 
 ## License
 
-This library is licensed under the MIT-0 License. See the LICENSE file.
-
+This library is licensed under [the MIT-0 License](https://github.com/aws/mit-0).
