@@ -2,8 +2,10 @@
 // SPDX-License-Identifier: MIT-0
 
 const { expect } = require('chai');
+const sinon = require("sinon");
 
 const { Game } = require('../src/index');
+const Helpers = require('../src/helpers');
 
 describe('Game Function Group', () => {
   describe('Initialize Game', () => {
@@ -36,11 +38,39 @@ describe('Game Function Group', () => {
   });
   describe('End Game', () => {
     it('Check that there are no more competitors after the game ends', async function() {
+      const spyStart = sinon.spy(Game.prototype, "start");
+      const spyStop = sinon.spy(Game.prototype, "stop");
+
       const game = new Game();
+
       game.start();
       game.stop();
+
       expect(game.players.you).to.be.equal(undefined);
       expect(game.players.opponent).to.be.equal(undefined);
+      
+      expect(spyStart.called).to.be.true
+      expect(spyStop.called).to.be.true
+    });
+  });
+  describe('Game ID Stubs and Mocks', () => {
+    it('Check that an out of range game ID is returned with Stub', async function() {
+      let generateIdStub = sinon.stub(Game.prototype, 'getId').returns(999999);
+
+      const game = new Game();
+
+      expect(game.getId()).is.equal(999999);
+
+      generateIdStub.restore();
+    });
+    it('Using a mock check that the function was called and returns 9', async function() {
+      let mock = sinon.mock(Game.prototype).expects('getId').withArgs().returns(9);
+      
+      const game = new Game();
+      const Id = game.getId();
+
+      mock.verify();
+      expect(Id).is.equal(9);
     });
   });
 });

@@ -22,7 +22,8 @@
   },
   "homepage": "https://github.com/scttzth/node-js-game-app-unit-tests#readme",
   "dependencies": {
-    "chai": "^4.3.4",
-    "mocha": "^8.4.0"
+    "chai": "4.3.4",
+    "mocha": "8.4.0",
+    "sinon": "11.1.1"
   }
 }

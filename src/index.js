@@ -14,6 +14,9 @@ class Game {
             opponent: 'Player 2'
         };
     }
+    getId() {
+        return this.id;
+    }
     stop() {
         this.players = {};
     }
